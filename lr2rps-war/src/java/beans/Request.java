@@ -54,5 +54,10 @@ public class Request {
     public void setCl(List<Client> cl) {
         this.cl = cl;
     }
+    
+    public String details(int id) throws SQLException {
+        session.setClient(dao.geClient(id));
+        return "details";
+    }
 
 }

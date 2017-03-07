@@ -5,6 +5,7 @@
         <h:body>
             <h:dataTable var="cl" value="#{Request.getCl()}" width="100%">
                 <h:column>
+                    
                     <h:outputText value="#{cl.id}"/> 
                     </h:column><h:column>
                     <h:outputText value="#{cl.fio}"/> 
@@ -14,6 +15,10 @@
                     <h:outputText value="#{cl.adress}"/> 
                     </h:column><h:column>
                     <h:outputText value="#{cl.phone}"/>
+                </h:column><h:column>
+                    <h:form>
+                        <h:commandButton id="submit" value="Подробнее" action="#{Request.details(cl.id)}"/>
+                    </h:form>
                 </h:column>
             </h:dataTable>
         </h:body>
