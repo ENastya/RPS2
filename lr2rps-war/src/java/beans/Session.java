@@ -9,12 +9,13 @@ import WebApp.Client;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author Настя
  */
-@Named(value = "session")
+@ManagedBean(name = "Session")
 @SessionScoped
 public class Session implements Serializable {
 

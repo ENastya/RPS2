@@ -19,14 +19,13 @@ import javax.enterprise.context.RequestScoped;
  *
  * @author Настя
  */
-@Named(value = "request")
 @RequestScoped
 public class Request {
 
     @EJB
     private DaoMet dao;
 
-    Session session = new Session();
+    private Session session;
     private List<Client> cl;
     
     public void allClient() {
@@ -56,8 +55,22 @@ public class Request {
     }
     
     public String details(int id) throws SQLException {
-        session.setClient(dao.geClient(id));
+        getSession().setClient(dao.geClient(id));
         return "details";
+    }
+
+    /**
+     * @return the session
+     */
+    public Session getSession() {
+        return session;
+    }
+
+    /**
+     * @param session the session to set
+     */
+    public void setSession(Session session) {
+        this.session = session;
     }
 
 }
